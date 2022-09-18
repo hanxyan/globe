@@ -218,6 +218,7 @@ function convertToPlaneCoords(coordinates_array, radius) {
     var lon = coordinates_array[0];
     var lat = coordinates_array[1];
         
+    // 这个是什么公式？整个地球划分为180份，然后lat/180为所占份额，乘以当前平面的宽度，得到z值？
     z_values.push((lat/180) * radius);
     y_values.push((lon/180) * radius);    
 }
@@ -235,6 +236,7 @@ function drawParticle(x, y, z, options) {
 }
 
 function drawLine(x_values, y_values, z_values, options) {
+  // 自定义Geometry
     var line_geom = new THREE.Geometry();
     createVertexForEachPoint(line_geom, x_values, y_values, z_values);
                 
